@@ -54,10 +54,6 @@ MOM6 diagnostic fields table for CESM case: NWA12
 "ocean_model", "geolon", "geolon", "ocean_static", "all", "none", "none", 2
 ```
 
-## Issues
-
-Report bugs at: https://github.com/anthonymeza/CESM-diags-generator/issues
-
 ## License
 
 MIT License
