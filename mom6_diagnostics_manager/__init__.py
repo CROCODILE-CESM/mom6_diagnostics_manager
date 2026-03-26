@@ -15,12 +15,12 @@ Documentation: https://github.com/anthonymeza/CESM-diags-generator
 from .core import Diagnostic, DiagnosticsParser, DiagTableGenerator
 from .ui import DiagTableUI, create_diag_table_ui
 
-__version__ = '0.1.0'
-__author__ = 'Anthony Meza'
+__version__ = "0.1.0"
+__author__ = "Anthony Meza"
 __all__ = [
-    'Diagnostic',
-    'DiagnosticsParser',
-    'DiagTableGenerator',
-    'DiagTableUI',
-    'create_diag_table_ui'
+    "Diagnostic",
+    "DiagnosticsParser",
+    "DiagTableGenerator",
+    "DiagTableUI",
+    "create_diag_table_ui",
 ]

@@ -14,7 +14,7 @@ class TestDiagnostic:
             used=True,
             dimensions="time, yh, xh",
             long_name="Sea Surface Height",
-            units="m"
+            units="m",
         )
         assert diag.name == "SSH"
         assert diag.used is True
@@ -56,9 +56,7 @@ class TestDiagTableGenerator:
         gen = DiagTableGenerator()
         gen.add_file("ocean_static", -1, "days")
         gen.add_field(
-            module_name="ocean_model",
-            field_name="SSH",
-            file_name="ocean_static"
+            module_name="ocean_model", field_name="SSH", file_name="ocean_static"
         )
         assert len(gen.fields) == 1
         assert gen.fields[0]["field_name"] == "SSH"

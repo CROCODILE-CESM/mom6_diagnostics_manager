@@ -31,7 +31,7 @@ def sample_available_diags():
   ! dimensions: yh, xh
 """
 
-    with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.txt') as f:
+    with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".txt") as f:
         f.write(content)
         temp_path = f.name
 
@@ -97,7 +97,7 @@ class TestDiagnosticsParser:
 
         # Grid & Static should have geolon
         grid_diags = categories["Grid & Static"]
-        assert any(d.name == 'geolon' for d in grid_diags)
+        assert any(d.name == "geolon" for d in grid_diags)
 
     def test_file_not_found(self):
         """Test handling of nonexistent file."""

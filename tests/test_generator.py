@@ -12,10 +12,7 @@ class TestDiagTableGenerator:
     def test_basic_creation(self):
         """Test creating a basic generator."""
         gen = DiagTableGenerator(
-            title="Test Simulation",
-            base_year=2000,
-            base_month=1,
-            base_day=1
+            title="Test Simulation", base_year=2000, base_month=1, base_day=1
         )
         assert gen.title == "Test Simulation"
         assert gen.base_year == 2000
@@ -41,7 +38,7 @@ class TestDiagTableGenerator:
             output_freq=1,
             output_freq_units="days",
             new_file_freq=1,
-            new_file_freq_units="months"
+            new_file_freq_units="months",
         )
 
         assert len(gen.files) == 1
@@ -56,9 +53,7 @@ class TestDiagTableGenerator:
         gen = DiagTableGenerator()
         gen.add_file("ocean_static", -1, "days")
         gen.add_field(
-            module_name="ocean_model",
-            field_name="SSH",
-            file_name="ocean_static"
+            module_name="ocean_model", field_name="SSH", file_name="ocean_static"
         )
 
         assert len(gen.fields) == 1
@@ -76,7 +71,7 @@ class TestDiagTableGenerator:
             module_name="ocean_model",
             field_name="SSH",
             output_name="sea_surface_height",
-            file_name="ocean_static"
+            file_name="ocean_static",
         )
 
         field_def = gen.fields[0]
@@ -91,7 +86,7 @@ class TestDiagTableGenerator:
             module_name="ocean_model",
             field_name="SSH",
             file_name="ocean_daily",
-            reduction_method="mean"
+            reduction_method="mean",
         )
 
         field_def = gen.fields[0]
@@ -162,7 +157,9 @@ class TestDiagTableGenerator:
         """Test generating output with multiple files."""
         gen = DiagTableGenerator(title="Multi-File Test")
         gen.add_file("ocean_static", -1, "days")
-        gen.add_file("ocean_daily", 1, "days", new_file_freq=1, new_file_freq_units="months")
+        gen.add_file(
+            "ocean_daily", 1, "days", new_file_freq=1, new_file_freq_units="months"
+        )
 
         gen.add_field("ocean_model", "geolon", "ocean_static")
         gen.add_field("ocean_model", "SSH", "ocean_daily", reduction_method="mean")
@@ -188,7 +185,7 @@ class TestDiagTableGenerator:
             assert Path(saved_path).exists()
 
             # Read back and verify
-            with open(saved_path, 'r') as f:
+            with open(saved_path, "r") as f:
                 content = f.read()
 
             assert "Save Test" in content
