@@ -43,14 +43,19 @@ class FileManagerUI:
             options=[],
             description="",
             layout=widgets.Layout(
-                width="100%", height="160px", border="1px solid #ced4da", border_radius="4px"
+                width="100%",
+                height="160px",
+                border="1px solid #ced4da",
+                border_radius="4px",
             ),
             style={"description_width": "0px"},
         )
 
         if self.on_file_selected:
             file_selector.observe(
-                lambda change: self.on_file_selected(change["new"]) if change["new"] else None,
+                lambda change: (
+                    self.on_file_selected(change["new"]) if change["new"] else None
+                ),
                 names="value",
             )
 
@@ -59,7 +64,11 @@ class FileManagerUI:
     def _create_file_buttons(self) -> widgets.HBox:
         """Create add/remove file buttons."""
         add_btn = create_button(
-            "Add File", button_style="success", icon="plus", width="48%", on_click=self._on_add_file
+            "Add File",
+            button_style="success",
+            icon="plus",
+            width="48%",
+            on_click=self._on_add_file,
         )
 
         remove_btn = create_button(
@@ -100,7 +109,8 @@ class FileManagerUI:
                 self.generator.add_file(name, 1, "days")
                 display(
                     create_status_html(
-                        f"Added {name} (configure freq/units in File Configuration)", "success"
+                        f"Added {name} (configure freq/units in File Configuration)",
+                        "success",
                     )
                 )
                 self.add_file_widgets["name"].value = ""
@@ -274,7 +284,9 @@ class FileConfigUI:
                     regional_val = self._get_regional_value(regional_widgets)
 
                     # Update fields
-                    fields = [f for f in self.generator.fields if f["file_name"] == file_name]
+                    fields = [
+                        f for f in self.generator.fields if f["file_name"] == file_name
+                    ]
                     for field in fields:
                         field["module_name"] = module_widget.value
                         field["reduction_method"] = reduction_widget.value
@@ -283,7 +295,8 @@ class FileConfigUI:
 
                     display(
                         create_status_html(
-                            f"Settings applied to file and {len(fields)} diagnostic(s)", "success"
+                            f"Settings applied to file and {len(fields)} diagnostic(s)",
+                            "success",
                         )
                     )
                 except Exception as e:
@@ -310,9 +323,12 @@ class FileConfigUI:
         # Build layout
         config_widgets = [
             widgets.HTML(f"<b>File: {file_name}</b>"),
-            widgets.HBox([freq_widget, units_widget], layout=widgets.Layout(column_gap="10px")),
             widgets.HBox(
-                [module_widget, reduction_widget], layout=widgets.Layout(column_gap="10px")
+                [freq_widget, units_widget], layout=widgets.Layout(column_gap="10px")
+            ),
+            widgets.HBox(
+                [module_widget, reduction_widget],
+                layout=widgets.Layout(column_gap="10px"),
             ),
             widgets.HBox([packing_widget]),
             regional_widgets["dropdown"],

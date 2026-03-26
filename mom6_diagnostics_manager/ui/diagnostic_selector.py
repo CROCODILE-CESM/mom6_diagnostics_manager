@@ -72,7 +72,10 @@ class DiagnosticSelectorUI:
             description_width="45px",
         )
         self._manual_module_name = create_text_widget(
-            value="ocean_model", description="Module:", width="200px", description_width="55px"
+            value="ocean_model",
+            description="Module:",
+            width="200px",
+            description_width="55px",
         )
         add_btn = create_button(
             "Add",
@@ -114,7 +117,9 @@ class DiagnosticSelectorUI:
             width="300px",
             description_width="60px",
         )
-        widget.observe(lambda change: self.update_diagnostics_list(reset_page=True), names="value")
+        widget.observe(
+            lambda change: self.update_diagnostics_list(reset_page=True), names="value"
+        )
         return widget
 
     def _get_categories(self) -> Dict:
@@ -146,14 +151,18 @@ class DiagnosticSelectorUI:
             width="250px",
             description_width="70px",
         )
-        widget.observe(lambda change: self.update_diagnostics_list(reset_page=True), names="value")
+        widget.observe(
+            lambda change: self.update_diagnostics_list(reset_page=True), names="value"
+        )
         return widget
 
     def _update_selection_cache(self):
         """Update cache of selected fields."""
         self.selected_cache.clear()
         selected_field_names = {
-            f["field_name"] for f in self.generator.fields if f["file_name"] == self.file_name
+            f["field_name"]
+            for f in self.generator.fields
+            if f["file_name"] == self.file_name
         }
 
         for diag in self.parser.diagnostics.values():
@@ -270,7 +279,9 @@ class DiagnosticSelectorUI:
             checkboxes.append(page_info)
             checkboxes.append(pagination)
         elif total_diags == 0:
-            checkboxes.append(widgets.HTML("<i>No diagnostics match the current filters.</i>"))
+            checkboxes.append(
+                widgets.HTML("<i>No diagnostics match the current filters.</i>")
+            )
 
         self.diag_container.children = checkboxes
         self._update_status()
@@ -325,7 +336,9 @@ class DiagnosticSelectorUI:
     def _update_status(self):
         """Update the header with selection count."""
         count = len(self.selected_cache)
-        self.header.value = f"<b style='color: #6c757d;'>Diagnostics (Selected: {count})</b>"
+        self.header.value = (
+            f"<b style='color: #6c757d;'>Diagnostics (Selected: {count})</b>"
+        )
         if self.on_selection_change:
             self.on_selection_change()
 
@@ -403,7 +416,8 @@ class DiagnosticSelectorUI:
                     layout=widgets.Layout(margin="5px 0 10px 0"),
                 ),
                 widgets.HBox(
-                    [select_all_btn, deselect_all_btn], layout=widgets.Layout(margin="0 0 10px 0")
+                    [select_all_btn, deselect_all_btn],
+                    layout=widgets.Layout(margin="0 0 10px 0"),
                 ),
                 self.diag_container,
             ]

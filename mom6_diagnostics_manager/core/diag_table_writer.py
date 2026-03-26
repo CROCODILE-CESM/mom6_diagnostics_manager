@@ -88,7 +88,9 @@ class DiagTableGenerator:
             )
 
         if new_file_freq is not None and new_file_freq_units is None:
-            raise ValueError("new_file_freq_units must be specified when new_file_freq is provided")
+            raise ValueError(
+                "new_file_freq_units must be specified when new_file_freq is provided"
+            )
 
         # Check if file already exists
         for f in self.files:
@@ -213,7 +215,9 @@ class DiagTableGenerator:
         )
 
         if file_def["new_file_freq"] is not None:
-            base_line += f', {file_def["new_file_freq"]}, "{file_def["new_file_freq_units"]}"'
+            base_line += (
+                f', {file_def["new_file_freq"]}, "{file_def["new_file_freq_units"]}"'
+            )
 
         return base_line
 
@@ -303,9 +307,15 @@ class DiagTableGenerator:
 
         title = lines[0].strip()
         date_parts = lines[1].strip().split()
-        base_year, base_month, base_day = int(date_parts[0]), int(date_parts[1]), int(date_parts[2])
+        base_year, base_month, base_day = (
+            int(date_parts[0]),
+            int(date_parts[1]),
+            int(date_parts[2]),
+        )
 
-        generator = cls(title=title, base_year=base_year, base_month=base_month, base_day=base_day)
+        generator = cls(
+            title=title, base_year=base_year, base_month=base_month, base_day=base_day
+        )
 
         in_files = False
         in_fields = False

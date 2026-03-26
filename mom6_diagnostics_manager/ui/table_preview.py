@@ -19,7 +19,10 @@ class PreviewExportUI:
     """Manages the preview and export interface."""
 
     def __init__(
-        self, generator, on_export: callable = None, default_save_location="../data/diag_table"
+        self,
+        generator,
+        on_export: callable = None,
+        default_save_location="../data/diag_table",
     ):
         """Initialize preview/export UI.
 
@@ -33,7 +36,9 @@ class PreviewExportUI:
         # Create widgets
         self.preview_output = widgets.Output()
         self.export_status = widgets.Output()
-        self.export_label = create_section_header("Export", "(0 file(s), 0 diagnostic(s))")
+        self.export_label = create_section_header(
+            "Export", "(0 file(s), 0 diagnostic(s))"
+        )
 
         # Create data directory if it doesn't exist (in parent directory)
         data_dir = Path(default_save_location).parent
@@ -99,7 +104,8 @@ class PreviewExportUI:
                 num_fields = len(self.generator.fields)
                 display(
                     create_status_html(
-                        f"Saved ({num_files} file(s), {num_fields} diagnostic(s))", "success"
+                        f"Saved ({num_files} file(s), {num_fields} diagnostic(s))",
+                        "success",
                     )
                 )
 
@@ -189,12 +195,17 @@ class PreviewExportUI:
             VBox containing preview widgets
         """
         preview_btn = create_button(
-            "Preview diag_table", button_style="info", icon="eye", on_click=self.show_preview
+            "Preview diag_table",
+            button_style="info",
+            icon="eye",
+            on_click=self.show_preview,
         )
 
         return widgets.VBox(
             [
-                widgets.HTML("<h4 style='color: #495057; margin: 10px 0;'>Preview</h4>"),
+                widgets.HTML(
+                    "<h4 style='color: #495057; margin: 10px 0;'>Preview</h4>"
+                ),
                 preview_btn,
                 self.preview_output,
             ],
@@ -216,7 +227,11 @@ class PreviewExportUI:
         )
 
         clear_btn = create_button(
-            "Clear All", button_style="danger", icon="trash", width="48%", on_click=self.clear_all
+            "Clear All",
+            button_style="danger",
+            icon="trash",
+            width="48%",
+            on_click=self.clear_all,
         )
 
         return widgets.VBox(

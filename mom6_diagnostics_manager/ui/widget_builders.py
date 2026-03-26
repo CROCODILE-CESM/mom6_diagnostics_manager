@@ -135,7 +135,12 @@ def create_status_html(message: str, status: str = "success") -> widgets.HTML:
     Returns:
         HTML widget with colored status message
     """
-    colors = {"success": "#28a745", "error": "#dc3545", "info": "#007bff", "warning": "#ffc107"}
+    colors = {
+        "success": "#28a745",
+        "error": "#dc3545",
+        "info": "#007bff",
+        "warning": "#ffc107",
+    }
 
     icons = {"success": "✓", "error": "✗", "info": "ℹ", "warning": "⚠"}
 
@@ -156,7 +161,9 @@ def create_section_header(text: str, subtitle: str = "") -> widgets.HTML:
         HTML widget with formatted header
     """
     subtitle_html = (
-        f" <span style='color: #6c757d; font-size: 0.9em;'>{subtitle}</span>" if subtitle else ""
+        f" <span style='color: #6c757d; font-size: 0.9em;'>{subtitle}</span>"
+        if subtitle
+        else ""
     )
     return widgets.HTML(f"<b style='color: #495057;'>{text}</b>{subtitle_html}")
 
@@ -234,7 +241,9 @@ def create_hbox_row(
     Returns:
         HBox with widgets
     """
-    return widgets.HBox(list(widgets_list), layout=widgets.Layout(margin=f"0 0 {spacing} 0"))
+    return widgets.HBox(
+        list(widgets_list), layout=widgets.Layout(margin=f"0 0 {spacing} 0")
+    )
 
 
 def create_vbox_column(*widgets_list, spacing: str = "0") -> widgets.VBox:
@@ -247,7 +256,9 @@ def create_vbox_column(*widgets_list, spacing: str = "0") -> widgets.VBox:
     Returns:
         VBox with widgets
     """
-    return widgets.VBox(list(widgets_list), layout=widgets.Layout(margin=f"0 0 {spacing} 0"))
+    return widgets.VBox(
+        list(widgets_list), layout=widgets.Layout(margin=f"0 0 {spacing} 0")
+    )
 
 
 def create_pagination_controls(
@@ -285,7 +296,10 @@ def create_pagination_controls(
     )
 
     next_btn = create_button(
-        "Next →", disabled=(current_page >= total_pages - 1), width="48%", on_click=on_next
+        "Next →",
+        disabled=(current_page >= total_pages - 1),
+        width="48%",
+        on_click=on_next,
     )
 
     pagination = widgets.HBox([prev_btn, next_btn])
@@ -322,7 +336,10 @@ def create_number_input(
 
 
 def create_float_input(
-    value: float, description: str = "", width: str = "48%", description_width: str = "160px"
+    value: float,
+    description: str = "",
+    width: str = "48%",
+    description_width: str = "160px",
 ) -> widgets.FloatText:
     """Create a float input widget.
 

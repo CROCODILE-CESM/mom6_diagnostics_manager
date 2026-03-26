@@ -66,7 +66,9 @@ class DiagnosticsParser:
             if line.startswith('"') and "[" in line:
                 match = re.match(r'"([^"]+)"\s+\[(Used|Unused)\]', line)
                 if match:
-                    current_diag = Diagnostic(name=match.group(1), used=match.group(2) == "Used")
+                    current_diag = Diagnostic(
+                        name=match.group(1), used=match.group(2) == "Used"
+                    )
                     self.diagnostics[current_diag.name] = current_diag
             elif line.startswith("!") and current_diag:
                 self._parse_metadata(line, current_diag)

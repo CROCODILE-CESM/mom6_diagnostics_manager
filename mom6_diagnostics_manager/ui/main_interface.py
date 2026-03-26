@@ -78,7 +78,9 @@ class DiagTableUI:
         )
 
         # Initialize UI components
-        self.file_manager = FileManagerUI(self.generator, on_file_selected=self.show_file_config)
+        self.file_manager = FileManagerUI(
+            self.generator, on_file_selected=self.show_file_config
+        )
 
         self.file_config = FileConfigUI(self.generator, self.parser)
 
@@ -148,7 +150,9 @@ class DiagTableUI:
         )
 
         def update_casename(change):
-            self.generator.title = f"MOM6 diagnostic fields table for CESM case: {change['new']}"
+            self.generator.title = (
+                f"MOM6 diagnostic fields table for CESM case: {change['new']}"
+            )
 
         casename_widget.observe(update_casename, names="value")
         return casename_widget

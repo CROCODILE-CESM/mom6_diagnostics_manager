@@ -55,7 +55,9 @@ class TestDiagTableGenerator:
         """Test adding a field."""
         gen = DiagTableGenerator()
         gen.add_file("ocean_static", -1, "days")
-        gen.add_field(module_name="ocean_model", field_name="SSH", file_name="ocean_static")
+        gen.add_field(
+            module_name="ocean_model", field_name="SSH", file_name="ocean_static"
+        )
         assert len(gen.fields) == 1
         assert gen.fields[0]["field_name"] == "SSH"
 
