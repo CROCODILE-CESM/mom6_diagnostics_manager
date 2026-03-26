@@ -41,7 +41,7 @@ def _load_category_keywords() -> Dict[str, List[str]]:
         return yaml.safe_load(f).get("category_keywords", {})
 
 
-class DiagnosticsParser:
+class AvailableDiagsParser:
     """Parse MOM6 available_diags files into structured Diagnostic objects."""
 
     def __init__(self, filepath: Optional[str] = None):
