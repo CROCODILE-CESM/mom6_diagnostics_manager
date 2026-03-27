@@ -1,4 +1,4 @@
-"""MOM6 Diagnostics Manager - Interactive tool for creating diag_table files.
+"""MOM6 Diagnostics GUI - Interactive tool for creating diag_table files.
 
 Provides three ways to configure MOM6 diagnostic outputs:
 1. Interactive Jupyter UI - Visual, point-and-click selection
@@ -6,10 +6,10 @@ Provides three ways to configure MOM6 diagnostic outputs:
 3. Command-line - Scriptable CLI for batch processing
 
 Quick Start:
-    >>> from mom6_diagnostics_manager import create_diag_table_ui
+    >>> from mom6_diagnostics_gui import create_diag_table_ui
     >>> ui = create_diag_table_ui()  # Uses built-in example data
 
-Documentation: https://github.com/anthonymeza/CESM-diags-generator
+Documentation: https://github.com/anthonymeza/mom6_diagnostics_gui
 """
 
 from .core import Diagnostic, DiagnosticsParser, DiagTableGenerator

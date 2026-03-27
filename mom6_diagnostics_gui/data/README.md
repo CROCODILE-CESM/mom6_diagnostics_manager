@@ -16,7 +16,7 @@ Place your MOM6 `available_diags` files here for easy access when using the diag
 ## Example Usage
 
 ```python
-from mom6_diagnostics_manager import create_diag_table_ui
+from mom6_diagnostics_gui import create_diag_table_ui
 
 # Option 1: Use the built-in example file (default)
 ui = create_diag_table_ui()

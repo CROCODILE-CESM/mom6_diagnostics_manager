@@ -1,4 +1,4 @@
-"""Setup configuration for mom6_diagnostics_manager package."""
+"""Setup configuration for the mom6_diagnostics_gui package."""
 
 from setuptools import setup, find_packages
 from pathlib import Path
@@ -8,14 +8,14 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text() if (this_directory / "README.md").exists() else ""
 
 setup(
-    name='mom6-diagnostics-manager',
+    name='mom6-diagnostics-gui',
     version='0.1.0',
     author='Anthony Meza',
     author_email='',
-    description='Interactive diagnostic manager for MOM6 ocean model - create and manage diag_table files',
+    description='Interactive diagnostic GUI for the MOM6 ocean model to create and manage diag_table files',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/anthonymeza/CESM-diags-generator',
+    url='https://github.com/anthonymeza/mom6_diagnostics_gui',
     packages=find_packages(exclude=['tests', 'examples']),
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -52,8 +52,8 @@ setup(
     include_package_data=True,
     keywords='MOM6 oceanography climate modeling CESM diagnostics',
     project_urls={
-        'Bug Reports': 'https://github.com/anthonymeza/CESM-diags-generator/issues',
-        'Source': 'https://github.com/anthonymeza/CESM-diags-generator',
-        'Documentation': 'https://github.com/anthonymeza/CESM-diags-generator#readme',
+        'Bug Reports': 'https://github.com/anthonymeza/mom6_diagnostics_gui/issues',
+        'Source': 'https://github.com/anthonymeza/mom6_diagnostics_gui',
+        'Documentation': 'https://github.com/anthonymeza/mom6_diagnostics_gui#readme',
     },
 )

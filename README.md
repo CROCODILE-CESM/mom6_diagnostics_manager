@@ -1,6 +1,6 @@
-# MOM6 Diagnostics Manager
+# MOM6 Diagnostics GUI
 
-A tool for creating MOM6 `diag_table` using an interactive Jupyter interface
+A tool for creating MOM6 `diag_table` files using an interactive Jupyter GUI.
 
 <img width="949" height="629" alt="Screenshot 2025-10-18 at 3 26 10 PM" src="https://github.com/user-attachments/assets/96728a78-32e8-46d7-bbe2-3fb968e4c748" />
 
@@ -13,12 +13,12 @@ Creating `diag_table` files for MOM6 by hand can be tedious. This tool parses th
 
 ```bash
 # Clone the repository
-git clone https://github.com/anthonymeza/CESM-diags-generator.git
-cd CESM-diags-generator
+git clone https://github.com/anthonymeza/mom6_diagnostics_gui.git
+cd mom6_diagnostics_gui
 
 # Install with conda (recommended)
 conda env create -f environment.yml
-conda activate mom6-diagnostics-manager
+conda activate mom6-diagnostics-gui
 pip install -e .
 
 # Or install with pip
@@ -31,7 +31,7 @@ pip install -e .
 Try the notebook in `examples/`!
 
 ```python
-from mom6_diagnostics_manager import create_diag_table_ui
+from mom6_diagnostics_gui import create_diag_table_ui
 
 # Use built-in example data
 ui = create_diag_table_ui()
