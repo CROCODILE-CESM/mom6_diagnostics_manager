@@ -11,7 +11,8 @@ from .output_file_manager import FileManagerUI, FileConfigUI
 from .diagnostic_selector import DiagnosticSelectorUI
 from .table_preview import PreviewExportUI
 from .widget_builders import create_text_widget, create_help_text
-
+from ..core import AvailableDiagsParser, DiagTableGenerator
+from pathlib import Path
 
 class DiagTableUI:
     """Interactive UI for creating MOM6 diag_table files.
@@ -258,8 +259,7 @@ def create_diag_table_ui(
         DiagTableUI instance
     """
     try:
-        from ..core import DiagnosticsParser, DiagTableGenerator
-        from pathlib import Path
+        
 
         package_dir = Path(__file__).parent.parent
 
@@ -281,13 +281,20 @@ def create_diag_table_ui(
         progress.value = 20
         if available_diags_file is not None:
             start = time.time()
-            parser = DiagnosticsParser(available_diags_file)
+            parser = AvailableDiagsParser(available_diags_file)
             parse_time = time.time() - start
             total = len(parser.diagnostics)
             status_label.value = f"Loaded {total} diagnostics in {parse_time:.3f}s"
-        else:
-            parser = DiagnosticsParser()
+        elif available_diags_file is "not_provided":
+            parser = AvailableDiagsParser()
             status_label.value = "No available_diags file — manual field entry only"
+        else:
+            start = time.time()
+            default_available_diags = package_dir / "standalone_defaults" / "default_available_diags"
+            parser = AvailableDiagsParser(default_available_diags)
+            parse_time = time.time() - start
+            total = len(parser.diagnostics)
+            status_label.value = f"Loaded {total} diagnostics in {parse_time:.3f}s"
 
         progress.value = 60
 
@@ -296,7 +303,7 @@ def create_diag_table_ui(
             generator = DiagTableGenerator.from_file(input_diag_table)
             print(f"Loaded diag_table from: {input_diag_table}")
         else:
-            default_diag_table = package_dir / "data" / "default_diag_table"
+            default_diag_table = package_dir / "standalone_defaults" / "default_diag_table"
             generator = DiagTableGenerator.from_file(str(default_diag_table))
             generator.title = f"MOM6 diagnostic fields table for CESM case: {case_name}"
 

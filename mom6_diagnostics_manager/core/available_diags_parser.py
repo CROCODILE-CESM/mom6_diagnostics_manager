@@ -1,7 +1,6 @@
 """Parser for MOM6 available_diags files."""
 
 import re
-import yaml
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -36,9 +35,9 @@ class Diagnostic:
 
 
 def _load_category_keywords() -> Dict[str, List[str]]:
-    config_path = Path(__file__).parent.parent / "config.yml"
-    with open(config_path, "r") as f:
-        return yaml.safe_load(f).get("category_keywords", {})
+    return {
+        "Grid & Static": ["geo", "depth", "area", "wet", "mask", "grid", "static"],
+    }
 
 
 class AvailableDiagsParser:

@@ -12,7 +12,7 @@ Quick Start:
 Documentation: https://github.com/anthonymeza/CESM-diags-generator
 """
 
-from .core import Diagnostic, DiagnosticsParser, DiagTableGenerator
+from .core import Diagnostic, AvailableDiagsParser, DiagTableGenerator
 from .ui import DiagTableUI, create_diag_table_ui
 
 __version__ = "0.1.0"
