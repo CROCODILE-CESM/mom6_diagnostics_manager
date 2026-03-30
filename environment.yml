@@ -1,4 +1,4 @@
-name: mom6-diagnostics-manager
+name: mom6-diagnostics-gui
 channels:
   - conda-forge
   - defaults

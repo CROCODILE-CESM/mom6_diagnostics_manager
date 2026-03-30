@@ -1,4 +1,4 @@
-"""Setup configuration for mom6_diagnostics_manager package."""
+"""Setup configuration for mom6_diagnostics_gui package."""
 
 from setuptools import setup, find_packages
 from pathlib import Path
@@ -12,11 +12,11 @@ long_description = (
 )
 
 setup(
-    name="mom6-diagnostics-manager",
+    name="mom6-diagnostics-gui",
     version="0.1.0",
     author="Anthony Meza",
     author_email="",
-    description="Interactive diagnostic manager for MOM6 ocean model - create and manage diag_table files",
+    description="Interactive diagnostic gui for MOM6 ocean model - create and manage diag_table files",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/anthonymeza/CESM-diags-generator",

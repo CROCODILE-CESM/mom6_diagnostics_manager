@@ -3,9 +3,9 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mom6-diagnostics-manager"
+name = "mom6-diagnostics-gui"
 version = "0.1.0"
-description = "Interactive diagnostic manager for MOM6 ocean model - create and manage diag_table files"
+description = "Interactive diagnostic gui for MOM6 ocean model - create and manage diag_table files"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}

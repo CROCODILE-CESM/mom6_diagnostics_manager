@@ -18,7 +18,7 @@ cd CESM-diags-generator
 
 # Install with conda (recommended)
 conda env create -f environment.yml
-conda activate mom6-diagnostics-manager
+conda activate mom6-diagnostics-gui
 pip install -e .
 
 # Or install with pip
@@ -31,7 +31,7 @@ pip install -e .
 Try the notebook in `examples/`!
 
 ```python
-from mom6_diagnostics_manager import create_diag_table_ui
+from mom6_diagnostics_gui import create_diag_table_ui
 
 # Use built-in example data
 ui = create_diag_table_ui()
